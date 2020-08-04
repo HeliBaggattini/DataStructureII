@@ -18,13 +18,19 @@ public class StackTest {
         
         Stack s = new Stack();
         
+        System.out.println("size: " + s.size());
+        
         s.push(0);
         s.push(1);
         s.push(2);
         s.push(3);
         s.push(4);
         
-        System.out.println(s.peek());
+        try {
+            System.out.println(s.peek());
+        } catch (Exception ex) {
+            Logger.getLogger(StackTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println(s);
         
         try {
@@ -45,6 +51,7 @@ public class StackTest {
         }
         
         System.out.println(s);
+        System.out.println("size: " + s.size());
         
         try {
             s.pop();

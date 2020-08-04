@@ -16,10 +16,16 @@ public class Stack {
 
     public Stack() {
         this.top = null;
+        this.size = 0;
     }
 
-    public Node peek() {
-        return top;
+    public Node peek() throws Exception {
+        if (size > 0) {
+            return top;
+        } else {
+            throw new Exception("empty stack");
+        }
+
     }
 
     public Node pop() throws Exception {
@@ -29,20 +35,21 @@ public class Stack {
             this.size--;
 
             return top;
+        } else {
+            throw new Exception("cannot remove (empty stack)");
         }
-        throw new Exception("cannot remove (empty stack)");
 
     }
 
     public void push(int n) {
 
         this.top = new Node(n, this.top);
-        
+
         this.size++;
 
     }
-    
-    public int size(){
+
+    public int size() {
         return this.size;
     }
 
