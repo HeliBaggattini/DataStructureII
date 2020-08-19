@@ -44,15 +44,84 @@ public class BinaryTree {
     public Node getRoot() {
         return this.root;
     }
-    
-    public int count(Node n){
+
+    public int count(Node n) {
         int count = 1;
-        
-        if(n == null){
+
+        if (n == null) {
             return 0;
-        }else{
+        } else {
             count += count(n.left);
             count += count(n.right);
+            return count;
+        }
+    }
+
+    public int height(Node n) {
+
+        if (n.isExternal()) {
+            return 0;
+        }
+
+        int l = 0, r = 0;
+        if (n.left != null) {
+            l = height(n.left);
+        }
+        if (n.right != null) {
+            l = height(n.right);
+        }
+        return Math.max(l, r) + 1;
+    }
+
+    public void print(Node n) {
+        System.out.println(n);
+        if (n.left != null) {
+            print(n.left);
+        }
+        if (n.right != null) {
+            print(n.right);
+        }
+    }
+
+    public int depht(Node n) {
+        if (n.isRoot()) {
+            return 0;
+        } else {
+            return 1 + depht(n.parent);
+        }
+    }
+
+    public int leafs(Node n) {
+        int count = 0;
+        if (n.isExternal()) {
+            return 1;
+        } else {
+            if (n.left != null) {
+                count += leafs(n.left);
+            }
+            if (n.right != null) {
+                count += leafs(n.right);
+            }
+        }
+
+        return count;
+    }
+
+    public int cores(Node n) {
+        int count = 0;
+
+        if (n.isExternal()) {
+            return 0;
+        } else {
+            if (!n.isRoot()) {
+                count++;
+            }
+            if (n.left != null) {
+                count += cores(n.left);
+            }
+            if (n.right != null) {
+                count += cores(n.right);
+            }
             return count;
         }
     }

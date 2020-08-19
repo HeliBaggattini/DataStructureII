@@ -20,8 +20,13 @@ public class BTTest {
         try {
             Node a = bt.addChildLeft(bt.getRoot(), "a");
             Node b = bt.addChildRight(bt.getRoot(), "b");
-            System.out.println(b);
-            Node c = bt.addChildRight(b, "c");
+            Node c = bt.addChildLeft(a, "c");
+            Node d = bt.addChildRight(a, "d");
+            Node e = bt.addChildLeft(b, "e");
+            Node f = bt.addChildRight(b, "f");
+            Node g = bt.addChildLeft(c, "g");
+            Node h = bt.addChildRight(c, "h");
+            Node i = bt.addChildRight(d, "h");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -33,12 +38,21 @@ public class BTTest {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        
         try {
             Node d = bt.addChildRight(bt.getRoot(), "d");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        
+        System.out.println(bt.height(bt.getRoot()));
+        System.out.println(bt.height(bt.getRoot().left));
+        System.out.println(bt.depht(bt.getRoot()));
+        System.out.println(bt.depht(bt.getRoot().left));
+        
+        System.out.println(bt.cores(bt.getRoot()));
+        System.out.println(bt.leafs(bt.getRoot()));
+        
+        bt.print(bt.getRoot());
     }
 
 }
