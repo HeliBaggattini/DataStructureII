@@ -73,14 +73,18 @@ public class BinaryTree {
         return Math.max(l, r) + 1;
     }
 
-    public void print(Node n) {
-        System.out.println(n);
-        if (n.left != null) {
-            print(n.left);
+    public String print(Node n) {
+        String s = "";
+        if (n != null) {
+            s = n.toString() + " ";
+            if (n.left != null) {
+                s += print(n.left);
+            }
+            if (n.right != null) {
+                s += print(n.right);
+            }
         }
-        if (n.right != null) {
-            print(n.right);
-        }
+        return s;
     }
 
     public int depht(Node n) {
@@ -126,4 +130,57 @@ public class BinaryTree {
         }
     }
 
+    public String preOrder(Node n) {
+        String s = "";
+
+        if (n != null) {
+            s = n.element + "  ";
+
+            if (n.left != null) {
+                s += preOrder(n.left);
+            }
+
+            if (n.right != null) {
+                s += preOrder(n.right);
+            }
+        }
+        return s;
+
+    }
+
+    public String postOrder(Node n) {
+        String s = "";
+
+        if (n != null) {
+            if (n.left != null) {
+                s = postOrder(n.left);
+            }
+
+            if (n.right != null) {
+                s += postOrder(n.right);
+            }
+
+            s += n.element + " ";
+        }
+
+        return s;
+    }
+
+    public String inOrder(Node n) {
+        String s = "";
+
+        if (n != null) {
+            if (n.left != null) {
+                s = inOrder(n.left);
+            }
+
+            s += n.element + "  ";
+
+            if (n.right != null) {
+                s += inOrder(n.right);
+            }
+        }
+
+        return s;
+    }
 }
