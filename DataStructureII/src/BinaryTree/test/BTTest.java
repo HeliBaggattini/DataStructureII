@@ -72,6 +72,10 @@ public class BTTest {
         System.out.println("pos ordem: " + bt.postOrder(bt.getRoot()));
         System.out.println("em ordem: " + bt.inOrder(bt.getRoot()));
         System.out.println("Binary tree: " + bt.print(bt.getRoot()));
+        
+        for(Node n: bt.inOrderArray(bt.getRoot())){
+            System.out.print(n.element + " ");
+        }
     }
 
 }

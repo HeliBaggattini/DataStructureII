@@ -5,6 +5,8 @@
  */
 package BinaryTree;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 1511 FOX
@@ -178,6 +180,24 @@ public class BinaryTree {
 
             if (n.right != null) {
                 s += inOrder(n.right);
+            }
+        }
+
+        return s;
+    }
+    
+    public ArrayList<Node> inOrderArray(Node n) {
+        ArrayList<Node> s = new ArrayList<Node>();
+
+        if (n != null) {
+            if (n.left != null) {
+                s.addAll(inOrderArray(n.left));
+            }
+
+            s.add(n);
+
+            if (n.right != null) {
+                s.addAll(inOrderArray(n.right));
             }
         }
 
